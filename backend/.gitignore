@@ -1,0 +1,45 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Node.js
+node_modules/
+
+# Build
+dist/
+
+# Cache
+.cache/
+.local/
+
+# Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Dependency directories
+pnpify/
+.pnp.js
+
+# Optional: lockfile
+yarn.lock
+package-lock.json
+
+# Optional: Jest coverage
+coverage/
+
+# Optional: Vue.js generated files
+*.js.map
+*.js.LICENSE.txt
