@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
 
-const EventList = () => {
+const EventList = ({ events, setEvents }) => {
 
   // compnent lifecycle
   // 1. mounts (state runs, code runs, JSX gets put on screen)
@@ -12,10 +12,6 @@ const EventList = () => {
   // 5. dismounts ?
 
 
-  
-  const [events, setEvents] = useState([]);
-
-  
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -31,13 +27,27 @@ const EventList = () => {
 
   console.log("I'm on first render, before useEffect")
 
+  const handleDelete = async (eventID) => {
+    // 1. go to DB and delete
+    let response = await axios({
+      method: "DELETE",
+      url: `/server/events/${eventID}`,
+    })
 
+    // 2. its still in state i.e. still on screen
+    if (response.status === 200) {
+      // 3. update state so it doesn't show up anymore
+      setEvents(events.filter((event => event._id != eventID)))
+    }
+
+    // 3. so - set state without this ID
+  }
 
   return (
     <div className="event-list">
       <h1>My List Of Events</h1>
       {events.map(event => (
-        <div key={event.id} className="event-item">
+        <div key={event._id} className="event-item">
           <h2>{event.title}</h2>
           <p>Date: {event.date}</p>
           <p>Location: {event.location}</p>
@@ -47,6 +57,7 @@ const EventList = () => {
             <p>Name: {event.organizer.name}</p>
             <p>Role: {event.organizer.role}</p>
           </div>
+          <button onClick={() => handleDelete(event._id)}>Delete</button>
         </div>
       ))}
     </div>

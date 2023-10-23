@@ -22,6 +22,20 @@ app.use(helmet());
 // START ROUTES //
 
 
+app.get("/events", async (req, res) => {
+    let arrayOfEvents = await Event.find()
+    res.status(201).send(arrayOfEvents);
+})
+
+app.delete("/events/:IdOfEvent", async (req, res) => {
+    // .findByIdAndDelete
+    let id = req.params.IdOfEvent;
+    let response = await Event.findByIdAndDelete(id);
+    console.log(response);
+    res.send('deleted event');
+});
+
+
 app.post("/events", async (req, res) => {
     // 1. get the data that was sent from the frontend
     // let eventData = req.body.eventData;
@@ -30,14 +44,15 @@ app.post("/events", async (req, res) => {
 
     try {
         let response = await Event.create(req.body);
-        res.status(201).send("created a new event!")
+        res.status(201).send(response)
     } catch (err) {
         console.error(err)
         res.send("ERROR")
     }
-    
+
 });
 
+app.d
 
 // END ROUTES //
 
