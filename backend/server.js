@@ -7,6 +7,7 @@ require('./config/db.js');
 const Event = require('./models/Event.js');
 const PORT = 3000;
 
+
 const app = express();
 
 
@@ -18,6 +19,8 @@ app.use(cors({
 app.use(morgan('dev'));
 app.use(helmet());
 // END MIDDLEWARE //
+
+app.use(express.static(path.join(__dirname, "dist")));
 
 // START ROUTES //
 
