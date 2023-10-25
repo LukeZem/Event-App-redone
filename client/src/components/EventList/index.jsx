@@ -3,7 +3,7 @@ import axios from 'axios';
 import './index.css';
 import Event from '../Event';
 
-const EventList = ({ events, setEvents }) => {
+const EventList = ({events, setEvents}) => {
 
   // compnent lifecycle
   // 1. mounts (state runs, code runs, JSX gets put on screen)
@@ -13,10 +13,10 @@ const EventList = ({ events, setEvents }) => {
   // 5. dismounts ?
 
 
+  
 
 
-
-
+  
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -44,24 +44,22 @@ const EventList = ({ events, setEvents }) => {
       // 2. It's still in state! Still on the screen
       // 3. so - set state without this ID!
       setEvents(events.filter(event => event._id !== eventId));
-
+      
     }
   }
 
-  // showForm, setShowForm = useState(false)
-  // idToShow
+// showForm, setShowForm = useState(false)
+// idToShow
 
-  // which event should the form change?
-  // ONE FORM?
-  // a form for each?
+// which event should the form change?
+// ONE FORM?
+// a form for each?
 
   return (
     <div className="event-list">
       <h1>My List Of Events</h1>
       {events.map(event => (
-        <div key={event._id}>
-          <Event event={event} setEvents={setEvents} handleDelete={handleDelete} />
-        </div>
+        <Event key={event._id} event={event} setEvents={setEvents} handleDelete={handleDelete} />
       ))}
     </div>
   );
