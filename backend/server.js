@@ -25,12 +25,12 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 // START ROUTES //
 
 
-app.get("server/events", async (req, res) => {
+app.get("events", async (req, res) => {
     let arrayOfEvents = await Event.find()
     res.status(201).send(arrayOfEvents);
 })
 
-app.delete("server/events/:IdOfEvent", async (req, res) => {
+app.delete("events/:IdOfEvent", async (req, res) => {
     // .findByIdAndDelete
     let id = req.params.IdOfEvent;
     let response = await Event.findByIdAndDelete(id);
@@ -39,14 +39,14 @@ app.delete("server/events/:IdOfEvent", async (req, res) => {
 });
 
 
-app.put('server/events/:idOfEvent', async (req, res) => {
+app.put('events/:idOfEvent', async (req, res) => {
     let id = req.params.idOfEvent;
     let response = await Event.findByIdAndUpdate(id, req.body, { new: true });
     console.log(response);
     res.send(response)
 });
 
-app.post("server/events", async (req, res) => {
+app.post("events", async (req, res) => {
     // 1. get the data that was sent from the frontend
     // let eventData = req.body.eventData;
 
