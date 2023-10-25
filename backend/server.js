@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 app.use(helmet());
 // END MIDDLEWARE //
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // START ROUTES //
 
