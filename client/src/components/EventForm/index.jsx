@@ -72,8 +72,9 @@ const EventForm = ({ setEvents }) => {
 
   return (
     <div>
+      <h1>Events Page</h1>
       <form onSubmit={handleSubmit}>
-        {/* input */}
+       
         <div>
           <label htmlFor="title">Title:</label>
           <input
@@ -84,7 +85,7 @@ const EventForm = ({ setEvents }) => {
             onChange={handleInputChange}
           />
         </div>
-        {/* input */}
+        
         <div>
           <label htmlFor="date">Date:</label>
           <input
@@ -96,7 +97,6 @@ const EventForm = ({ setEvents }) => {
           />
         </div>
 
-        {/* input */}
         <div>
           <label htmlFor="location">Location:</label>
           <input
@@ -108,7 +108,6 @@ const EventForm = ({ setEvents }) => {
           />
         </div>
 
-        {/* input */}
         <div>
           <label htmlFor="description">Description:</label>
           <textarea
@@ -119,10 +118,8 @@ const EventForm = ({ setEvents }) => {
           />
         </div>
 
-        {/* input */}
         <div>
           <h4>Organizer Details</h4>
-
           <label htmlFor="organizerName">Name:</label>
           <input
             type="text"
