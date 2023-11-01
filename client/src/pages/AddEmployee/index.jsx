@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const AddEmployee = () => {
+const AddEmployee = ({ setEmployees }) => {
 
     const [employee, setEmployee] = useState({
         name: "",
@@ -30,6 +30,7 @@ const AddEmployee = () => {
             console.log(response);
             if (response.status >= 200 && response.status < 300) {
                 console.log("employee added to DB", response.data);
+                setEmployees(prevEmployees => [...prevEmployees, response.data]);
             } else {
                 console.error("Error adding employee", response.data)
             }
@@ -78,6 +79,7 @@ const AddEmployee = () => {
                         onChange={handleInputChange}
                     />
                 </div>
+                <button type='submit'>Add Employee</button>
             </form>
         </div>
     )

@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.css'
 import { useEffect } from 'react'
+import axios from 'axios'
 
 const ViewEmployee = ({ employees, setEmployees }) => {
 
@@ -21,9 +22,15 @@ const ViewEmployee = ({ employees, setEmployees }) => {
   return (
     <div className="event-list">
       <h1>My List Of Events</h1>
-      {employees.map(event => (
-        <Event key={event._id} event={event} setEvents={setEvents} handleDelete={handleDelete} />
-      ))}
+      {employees.map((employee) => {
+        return (
+          <div key={employee._id}>
+            <h3>{employee.name}</h3>
+            <p>{employee.age}</p>
+            <p>{employee.role}</p>
+          </div>
+        )
+      })}
     </div>
   )
 }
