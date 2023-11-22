@@ -5,7 +5,7 @@ const helmet = require('helmet'); // adds a bunch of standard security to server
 require('dotenv').config();
 require('./config/db.js');
 const Event = require('./models/Event.js');
-const Employee = require('./models/Employee.js');
+const Person = require('./models/Person.js');
 const path = require("path");
 const PORT = 3000;
 
@@ -37,10 +37,10 @@ app.get("/events", async (req, res) => {
     res.status(201).send(arrayOfEvents);
 })
 
-// GET EMPLOYEES
-app.get("/employees", async (req, res) => {
-    let arrayOfEmployees = await Employee.find()
-    res.status(201).send(arrayOfEmployees);
+// GET PersonS
+app.get("/people", async (req, res) => {
+    let arrayOfPersons = await Person.find()
+    res.status(201).send(arrayOfPersons);
 })
 
 app.post("/events", async (req, res) => {
@@ -53,10 +53,10 @@ app.post("/events", async (req, res) => {
     }
 });
 
-// POST EMPLOYEE
-app.post("/employees", async (req, res) => {
+// POST Person
+app.post("/person", async (req, res) => {
     try {
-        let response = await Employee.create(req.body);
+        let response = await Person.create(req.body);
         res.status(201).send(response)
     } catch (err) {
         console.error(err)

@@ -2,15 +2,15 @@ import { useState } from 'react';
 import './App.css'
 import EventForm from './components/EventForm'
 import EventList from './components/EventList'
-import AddEmployee from './pages/AddEmployee';
-import ViewEmployee from './pages/ViewEmployees';
+import AddPerson from './pages/AddPerson';
+import ViewPerson from './pages/ViewPeople';
 import Navbar from './components/Navbar';
 import { Route, Routes } from "react-router-dom";
 
 function App() {
 
   const [events, setEvents] = useState([]);
-  const [employees, setEmployees] = useState([]);
+  const [people, setPeople] = useState([]);
 
   return (
     <>
@@ -22,10 +22,10 @@ function App() {
             <EventList events={events} setEvents={setEvents} />
           </>
         } />
-        <Route path='/employees' element={
+        <Route path='/people' element={
           <>
-            <AddEmployee setEmployees={setEmployees} />
-            <ViewEmployee employees={employees} setEmployees={setEmployees}/>
+            <AddPerson setPeople={setPeople} />
+            <ViewPerson people={people} setPeople={setPeople}/>
           </>
         } />
       </Routes>

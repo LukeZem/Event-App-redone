@@ -9,8 +9,8 @@ function Navbar
         <Link to={"/"}>
           <button>Events Page</button>
         </Link>
-        <Link to={"/employees"}>
-          <button>Employee Page</button>
+        <Link to={"/people"}>
+          <button>People Page</button>
         </Link>
       </nav>
     </div>
