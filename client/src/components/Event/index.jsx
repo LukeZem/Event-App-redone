@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
 import React, { useState } from 'react'
+import './index.css'
 
 const Event = ({ event, handleDelete, setEvents }) => {
     //  we will have many of this compnent!
@@ -9,6 +10,17 @@ const Event = ({ event, handleDelete, setEvents }) => {
     const [show, setShow] = useState(false);
     const [newDescription, setNewDescription] = useState(event.description);
 
+    
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0'); // months are 0-indexed
+        const year = date.getFullYear();
+
+        return `${month}/${day}/${year}`;
+    };
+
+    
     const handleClick = (eventId) => {
         // axios call to our PUT route
         // id,   new information
@@ -48,7 +60,7 @@ const Event = ({ event, handleDelete, setEvents }) => {
                 <button onClick={() => handleDelete(event._id)}>Delete</button>
                 <button onClick={() => setShow(!show)}>Edit</button>
                 <h2>{event.title}</h2>
-                <p>Date: {event.date}</p>
+                <p>Date: {formatDate(event.date)}</p>
                 <p>Location: {event.location}</p>
                 <p>Description: {event.description}</p>
                 <div className="organizer">

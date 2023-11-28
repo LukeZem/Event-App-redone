@@ -27,17 +27,14 @@ a:hover {
 }
 
 body {
+  display: block;
   margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  padding: 0;
+  overflow: auto;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  margin: 0;
 }
 
 button {

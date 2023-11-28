@@ -1,2 +1,38 @@
+.app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr 4fr;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.app div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
 
+
+.event-display {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+#event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+  

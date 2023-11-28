@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import './index.css';
 
 const EventForm = ({ setEvents }) => {
 
@@ -71,7 +72,7 @@ const EventForm = ({ setEvents }) => {
   };
 
   return (
-    <div>
+    <div className='event-form'>
       <h1>Events Page</h1>
       <form onSubmit={handleSubmit}>
        

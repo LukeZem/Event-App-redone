@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './index.css'
 
 function Navbar
   () {
   return (
-    <div>
+    <div className='navbar'>
       <nav>
         <Link to={"/"}>
           <button>Events Page</button>

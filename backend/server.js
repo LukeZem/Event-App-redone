@@ -57,10 +57,10 @@ app.post("/events", async (req, res) => {
 app.post("/person", async (req, res) => {
     try {
         let response = await Person.create(req.body);
-        res.status(201).send(response)
+        res.status(201).send(response);
     } catch (err) {
-        console.error(err)
-        res.send("ERROR")
+        console.error(err);
+        res.send("ERROR");
     }
 });
 

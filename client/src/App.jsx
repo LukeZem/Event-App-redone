@@ -14,23 +14,27 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={
-          <>
-            <EventForm setEvents={setEvents} />
-            <EventList events={events} setEvents={setEvents} />
-          </>
-        } />
-        <Route path='/people' element={
-          <>
-            <AddPerson setPeople={setPeople} />
-            <ViewPerson people={people} setPeople={setPeople}/>
-          </>
-        } />
-      </Routes>
+      <div className='app'>
 
+        <Navbar className='navbar' />
+        <Routes>
+          <Route path='/' element={
+            <>
+              <EventForm setEvents={setEvents} />
+              <div id='event-container'>
+                <EventList events={events} setEvents={setEvents} />
+              </div>
+            </>
+          } />
+          <Route path='/people' element={
+            <>
+              <AddPerson setPeople={setPeople} />
+              <ViewPerson people={people} setPeople={setPeople} />
+            </>
+          } />
+        </Routes>
 
+      </div>
     </>
   )
 }

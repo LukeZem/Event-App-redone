@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1",
     "react-router-dom": "^6.17.0"
   },
   "name": "event-app-redone",
