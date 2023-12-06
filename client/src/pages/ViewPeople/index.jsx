@@ -21,7 +21,7 @@ const ViewPeople = ({ people, setPeople }) => {
 
   return (
     <div className="event-list">
-      <h1>My List Of Events</h1>
+      <h1>Groups</h1>
       {people.map((person) => {
         return (
           <div key={person._id}>

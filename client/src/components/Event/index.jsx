@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './index.css'
 
 const Event = ({ event, handleDelete, setEvents }) => {
@@ -13,10 +13,12 @@ const Event = ({ event, handleDelete, setEvents }) => {
     
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        const day = date.getDate().toString().padStart(2, '0');
+        console.log(date.getDate());
+        const day = (date.getDate() + 1).toString().padStart(2, '0');
         const month = (date.getMonth() + 1).toString().padStart(2, '0'); // months are 0-indexed
         const year = date.getFullYear();
 
+        console.log(`LOGGING RESULT OF DATE CALC: ${month}/${day}/${year}`);
         return `${month}/${day}/${year}`;
     };
 

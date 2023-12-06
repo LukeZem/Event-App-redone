@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './App.css'
 import EventForm from './components/EventForm'
 import EventList from './components/EventList'
@@ -6,6 +6,7 @@ import AddPerson from './pages/AddPerson';
 import ViewPerson from './pages/ViewPeople';
 import Navbar from './components/Navbar';
 import { Route, Routes } from "react-router-dom";
+import { authContext } from './context/AuthProvider';
 
 function App() {
 
