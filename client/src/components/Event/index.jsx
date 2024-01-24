@@ -24,7 +24,7 @@ const Event = ({ event, handleDelete, setEvents }) => {
 
     
     const handleClick = (eventId) => {
-        // axios call to our PUT route
+        // axios call to PUT route
         // id,   new information
         // PUT            /events/:idOfEvent/
         axios({
