@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Person = require('./Person')
 
 const eventSchema = new mongoose.Schema({
     title: {type: String, required: true},
@@ -8,7 +9,8 @@ const eventSchema = new mongoose.Schema({
     organizer: {
       name: {type:String, required: true},
       role: {type:String, required: true}
-    }
+    },
+    attendees: [{type: mongoose.Schema.Types.ObjectId, ref: "Person"}]
 },
 {
     timestamps: true

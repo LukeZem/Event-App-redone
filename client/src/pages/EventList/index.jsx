@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
-import Event from '../Event';
+import Event from '../../components/Event';
 
 const EventList = ({events, setEvents}) => {
 

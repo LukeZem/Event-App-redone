@@ -7,6 +7,7 @@ require('./config/db.js');
 const Event = require('./models/Event.js');
 const Person = require('./models/Person.js');
 const path = require("path");
+const auth = require('./authFuncs.js')
 const PORT = 3000;
 
 const app = express();
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
     }
     next();
 })
+
+
 // ----------------------------------------END MIDDLEWARE---------------------------------------- //
 
 app.use(express.static(path.join(__dirname, "../client/dist")));
@@ -37,7 +40,7 @@ app.get("/events", async (req, res) => {
     res.status(201).send(arrayOfEvents);
 })
 
-// GET PersonS
+// GET Persons
 app.get("/people", async (req, res) => {
     let arrayOfPersons = await Person.find()
     res.status(201).send(arrayOfPersons);
@@ -64,6 +67,7 @@ app.post("/person", async (req, res) => {
     }
 });
 
+// DELETE Event
 app.delete("/events/:IdOfEvent", async (req, res) => {
     // .findByIdAndDelete
     let id = req.params.IdOfEvent;
@@ -72,7 +76,7 @@ app.delete("/events/:IdOfEvent", async (req, res) => {
     res.send('deleted event');
 });
 
-
+// Create Event
 app.put('/events/:idOfEvent', async (req, res) => {
     let id = req.params.idOfEvent;
     let response = await Event.findByIdAndUpdate(id, req.body, { new: true });
@@ -80,6 +84,32 @@ app.put('/events/:idOfEvent', async (req, res) => {
     res.send(response)
 });
 
+
+
+// app.post('/login', async (req, res) => {
+//     // use model to put user in collection
+//     // should get the email and pass in the req.body
+//     // 1. get the user with this email
+//     let dbUser = await User.findOne({email: req.body.email});
+//     // compare
+//     // 2. compare entered password with pass of this user
+//     if (!dbUser) return res.status(400).send("email or password incorrect");
+
+//     bcrypt.compare(req.body.password, dbUser.password, (err, isMatch) => { 
+//         if (isMatch) {
+//             // let the frontend know that the login was successful!
+//             // dont want password
+//             dbUser.password = "";
+//             // now just email and username
+//             const token = jwt.sign({dbUser}, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+//             res.status(200).send({token, dbUser});
+
+//             // log them in ( on frontend can do certain things, get info related to account, can do BACKEND stuff related to their account, permissions for CRUD functionality related to their account, allow only certain users to do certain things )
+//         } else {
+//             res.status(400).send("email or password incorrect")
+//         }
+//     })
+// })
 
 
 app.get('/*', (req, res) => {

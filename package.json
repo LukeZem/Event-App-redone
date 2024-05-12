@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "concurrently": "^8.2.2",
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1",
+    "passport": "^0.7.0",
     "react-router-dom": "^6.17.0"
   },
   "name": "event-app-redone",

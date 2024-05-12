@@ -46,12 +46,11 @@ const Event = ({ event, handleDelete, setEvents }) => {
                     if (eventObj._id === response.data._id) {
                         return response.data;
                     } else {
-                        return eventObj
+                        return eventObj;
                     }
                 });
-                return stateCopy
-
-
+                setShow(false);
+                return stateCopy;
             })
         })
     }

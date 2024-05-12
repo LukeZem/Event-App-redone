@@ -23,7 +23,7 @@ const AddPerson = ({ setPersons }) => {
         try {
             const response = await axios({
                 method: "POST",
-                url: '/server/persons', // make route then fill this.,
+                url: '/server/person', // make route then fill this.,
                 data: person // person data goes here
             })
             console.log(response);
